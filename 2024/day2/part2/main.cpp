@@ -29,11 +29,9 @@ bool isSafeWithOneRemoval(const vector<int>& report) {
 
     for (size_t i = 0; i < report.size(); ++i) {
         vector<int> modifiedReport;
-        for (size_t j = 0; j < report.size(); ++j) {
-            if (j != i) {
-                modifiedReport.push_back(report[j]);
-            }
-        }
+        modifiedReport.reserve(report.size() - 1);
+        modifiedReport.insert(modifiedReport.end(), report.begin(), report.begin() + i);
+        modifiedReport.insert(modifiedReport.end(), report.begin() + i + 1, report.end());
 
         if (isSafeReport(modifiedReport)) {
             return true;
@@ -46,7 +44,7 @@ bool isSafeWithOneRemoval(const vector<int>& report) {
 int main() {
     ifstream inputFile("input.txt");
     if (!inputFile) {
-        std::cerr << "Error al cargar input.txt" << std::endl;
+        cerr << "Error loading input.txt" << std::endl;
         return 1;
     }
 
