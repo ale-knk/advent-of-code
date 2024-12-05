@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "es2015",   // O "es2020" para soporte más reciente
+        "lib": ["es2015", "dom"], // Incluye ES2015 y DOM para módulos Node.js
+        "module": "commonjs", // Recomendado para Node.js
+        "strict": true,       // Opcional, para habilitar comprobación estricta
+        "outDir": "./dist"    // Opcional, para organizar archivos compilados
+    }
+}
